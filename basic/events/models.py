@@ -43,7 +43,7 @@ class EventTime(models.Model):
 
     @property
     def is_past(self):
-        NOW = datetime.date.now()
+        NOW = datetime.datetime.now()
         if self.start < NOW:
             return True
         return False
