@@ -44,9 +44,14 @@ class EventTime(models.Model):
     @property
     def is_past(self):
         NOW = datetime.datetime.now()
-        if self.start < NOW:
-            return True
-        return False
+        if (self.end):
+            if self.end < NOW:
+                return True
+            return False
+        else:
+            if self.start < NOW:
+                return True
+            return False
 
     def __unicode__(self):
         return u'%s' % self.event.title
